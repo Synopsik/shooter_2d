@@ -26,8 +26,8 @@ pub fn despawn_offscreen<T: Component>(
     q: Query<(Entity, &Transform), With<T>>,
 ) {
     for (e, t) in &q {
-        if t.translation.x.abs() > bounds.half_w + 50.0
-            || t.translation.y.abs() > bounds.half_h + 50.0
+        if t.translation.x.abs() > bounds.half_w + 50.0 ||
+            t.translation.y.abs() > bounds.half_h + 50.0
         {
             commands.entity(e).despawn();
         }
