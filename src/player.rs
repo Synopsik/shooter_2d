@@ -80,7 +80,7 @@ pub fn handle_shooting(
     let spawn_pos = transform.translation + facing_dir * 18.0;
 
     commands.spawn((
-        Transform::from_translation(spawn_pos),
+        Transform::from_translation(spawn_pos).with_rotation(transform.rotation),
         Sprite::from_color(Color::BLACK, Vec2::new(6.0, 14.0)),
         Bullet,
         Velocity(facing_dir.truncate() * BULLET_SPEED),
