@@ -30,6 +30,7 @@ fn main() {
             player::move_player,
             player::aim_with_mouse,
             player::handle_shooting,
+            // Bullet
             bullet::move_bullets,
             bullet::despawn_offscreen::<bullet::Bullet>,
             // Enemy
