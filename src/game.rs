@@ -41,13 +41,16 @@ pub fn setup_ui(mut commands: Commands) {
 pub fn update_counter_text(
     bullet_query: Query<&crate::bullet::Bullet>,
     enemy_query: Query<&crate::enemy::Enemy>,
+    score: Res<Score>,
+    hp: Res<PlayerHealth>,
     mut text_query: Query<&mut Text, With<CounterText>>,
 ) {
     let bullet_count = bullet_query.iter().count();
     let enemy_count = enemy_query.iter().count();
     
     if let Ok(mut text) = text_query.single_mut() {
-        *text = Text::new(format!("Bullets: {} | Enemies: {}", bullet_count, enemy_count));
+        *text = Text::new(format!("Score: {} | HP: {}\nBullets: {} | Enemies: {}", 
+                                  score.0, hp.0, bullet_count, enemy_count));
     }
 }
 
